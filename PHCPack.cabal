@@ -16,7 +16,8 @@ version:             0.1.0.0
 synopsis:            A simple wrapper of the PHCPack solver for polynomial systems
 
 -- A longer description of the package.
--- description:         
+description:         This package wraps part of PHCPack, a solver for polynomial systems.
+                     At the moment, only the black box solver is supported.
 
 -- URL for the project homepage or repository.
 homepage:            http://github.com/mruegenberg/PHCPack-hs
@@ -39,7 +40,7 @@ maintainer:          m [dot] ruegenberg [at] picodesign [dot] de
 
 category:            Math
 
-build-type:          Simple
+build-type:          Custom
 
 -- Constraint on the version of Cabal needed to build this package.
 cabal-version:       >=1.8
@@ -47,11 +48,16 @@ cabal-version:       >=1.8
 
 library
   -- Modules exported by the library.
-  -- exposed-modules:     
+  exposed-modules:     Numeric.PHCPack.Types
+                     , Numeric.PHCPack.Solver
   
   -- Modules included in this library but not exported.
-  -- other-modules:       
+  other-modules:       Numeric.PHCPack.Parse
   
   -- Other library packages from which modules are imported.
   build-depends:       base ==4.5.*
+                     -- attoparsec 0.10.0.0 might work as well; not tested though
+                     , attoparsec >= 0.10.2.0 
+                     , semigroups >= 0.7.0
+                     , bytestring
   
