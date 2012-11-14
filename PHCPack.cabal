@@ -60,4 +60,8 @@ library
                      , attoparsec >= 0.10.2.0 
                      , semigroups >= 0.7.0
                      , bytestring
+                     , containers
+                     , directory
+                     , temporary
+                     , process
   
